@@ -23,7 +23,7 @@ function combineArray(arr1,arr2) {
             arr3.push(arr2[h]);
         }
     }
-return arr3;
+    return arr3;
 }
 var arr1 = [];
 var arr2 = [1,3,5,6];

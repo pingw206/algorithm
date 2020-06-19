@@ -16,8 +16,22 @@ module.exports = {
       arr[minIndex] = temp; 
     }
   },
-  SelectionSortRecursion: function SelectionSort(arr) {
-    
+  SelectionSortRecursion: function SelectionSort(array) {
+    this.InternalSelectionSort(array, 0, array.length - 1);
+  },
+  InternalSelectionSort: function InternalSelectionSort(array, start, end) {
+    if (start >= end) { return;}
+    var minIndex = start;
+    var minElement = array[start];
+    for (var i = start + 1; i <= end; i++) {
+      if (array[i] < minElement) {
+        minElement = array[i];
+        minIndex = i;
+      }
+    }
+    var temp = array[start];
+    array[start] = array[minIndex];
+    array[minIndex] = temp;
+    InternalSelectionSort(array, start+1, end);
   }
-
 }

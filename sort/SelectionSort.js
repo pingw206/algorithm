@@ -12,3 +12,7 @@ function SelectionSort(arr) {
 		arr[min_index] = temp; 
 	}
 }
+
+
+	
+	

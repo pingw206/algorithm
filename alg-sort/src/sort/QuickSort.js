@@ -35,8 +35,8 @@ function Partition(array, left, right) {
 }
 
 
-/* 方法二 原地排 空间复杂度O（1）的，有点难理解
- Partition : function Partition(array, left, right) {
+/* 方法二 原地排 空间复杂度O（1）的，有点难理解,还没搞懂 */
+function Partition(array, left, right) {
         var pivot = array[right];
         var i = left-1;
         for (var j = left; j <= right-1; j++) {
@@ -48,4 +48,3 @@ function Partition(array, left, right) {
         array[right] = array[i+1]; array[i+1] = pivot; // swap(A[i+1], A[right])
         return i+1;
   }
- */

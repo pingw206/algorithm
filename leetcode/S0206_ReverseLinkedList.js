@@ -1,5 +1,6 @@
 // iteratively or recursively 循环或递归两种方法实现 
-//1.循环: 用头插法，先创造一个新链表， 0， 然后往前面循环依次插入 1-2-3-4-5， 变成 0-1；0-2-1；0-3-2-1； 最后返回0.next
+//1.循环: 用头插法，先创造一个新链表， 0， 然后往前面循环依次插入 1-2-3-4-5， 变成 0-1；0-2-1；0-3-2-1； 最后返回0.next;
+//newList一位置永远不动，一直在0那里
 var reverseList = function(head) {
   var newList = new ListNode(0);
   while (head !== null) {

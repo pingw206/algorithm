@@ -4,6 +4,7 @@ while 的条件也是要保证区间中有数，那么就是“<="，不用复�
 2. 找到的时候，left 和right可能相遇，也可能没相遇
 [left, mid-1, mid, mid +1, right]
 3. while循环中可以是小于号吗？如果等号可以吗？可以举例极限情况，如只剩下1个数或2个数，看是否能找到或者是否能停止循环
+4.2020-12-13更新错误原因：if, else if, else 写成了 if, if , else是不可以的
 */
 
 var search = function(nums, target) {
@@ -46,6 +47,22 @@ var search = function(nums, target) {
   return -1;
 };
 // 用lower bound来写也可以
+var search = function(nums, target) {
+  var left = 0; 
+  var right = nums.length;
+  while (left < right) {
+      var mid = Math.floor((left+right)/2);
+      if (nums[mid] === target){
+          return mid;
+      } else if (nums[mid] < target) {
+          left = mid +1;
+      } else if (nums[mid] > target) {
+          right = mid;
+      }
+  }
+  return -1;
+};
+//或者写成
  var binarySearch = function(a,target) {
      var left = 0;
      var right = a.length;

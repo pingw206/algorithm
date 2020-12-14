@@ -22,7 +22,7 @@ var solution = function(isBadVersion) {
     }
       
 };
-// 方法二，开区间
+// 方法二，开区间, 初始值 right 是n 还是n+1都行，因为默认不会没有bad， 所以走不出去数组到n+1
 var solution = function(isBadVersion) {
     /**
      * @param {integer} n Total versions

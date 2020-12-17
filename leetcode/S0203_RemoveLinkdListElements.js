@@ -5,7 +5,7 @@ var removeElements = function(head, val) {
   var headNode = new ListNode(0);
   headNode.next = head;
   var pointer = headNode;
-  while (pointer.next !== null) {
+  while (pointer.next !== null) {   
       if (pointer.next.val === val) {
           pointer.next = pointer.next.next;
       } else {    

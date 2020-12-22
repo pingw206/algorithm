@@ -3,14 +3,14 @@
 // 这个题区别于之前的遍历题方法是有返回值，用来处理null的情况，试着用没有返回值的处理方式写一下？ （不管有没有返回值，都会跳出一层递归）
 var invertTree = function(root) {
     if (root == null) {
-        return null;
+        return null;  //不再是return空
     }
     
-    // s1: resolve two sub question
-    var subLeft = invertTree(root.left);
-    var subRight = invertTree(root.right);
+    // 1: resolve two sub question
+    invertTree(root.left);
+    invertTree(root.right);
     
-    // s2: swap root.left and root.right
+    // 2: swap root.left and root.right---这里不是交换root.left.val
     var temp = root.left;    
     root.left = root.right;
     root.right = temp;

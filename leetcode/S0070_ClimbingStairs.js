@@ -1,6 +1,9 @@
+/*2020-12-28 错误超时的方法：
+return climbStair(n-1) + climbStair(n-2) ,导致循环调用，栈溢出
+*/
 //方法一
 function climbStair2(n) {
-    var a = [0,1,2]; // 简洁
+    var a = [0,1,2]; // 简洁，最开始写了个0，不用分情况讨论了
     for(var i = 3;i <= n;i++) {
         a.push(a[i-1] + a[i-2]);//如果用这句话，就不要提前设置a.length了
     }

@@ -2,7 +2,7 @@
     // [1, end1] -> [start2, end2] -> [start3, length]
     //   ==> 
     // [1, end1] -> [end2, start2] -> [start3, length]
-
+//2020-12-28 想明白哪个是在新链表上生成，哪个是在原链表上走（或是需要的链表上走），有点难以理解，cursorNode一直在新链表之外需要的链表上
 var reverseBetween = function(head, m, n) {
   if (head == null) {
       return null;

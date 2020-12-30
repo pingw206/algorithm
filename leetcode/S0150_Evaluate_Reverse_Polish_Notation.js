@@ -1,6 +1,13 @@
-//2020-5-17  有两个要判断是否抛出异常的地方，即使题目中不会出现，但这是惯例思维
-//字符串要转成整数才能参与运算，一定要是 stk.push(parseInt(str))，保证栈里面都是数字栈
-
+/*2020-5-17  有两个要判断是否抛出异常的地方，即使题目中不会出现，但这是惯例思维
+字符串要转成整数才能参与运算，一定要是 stk.push(parseInt(str))，保证栈里面都是数字栈 */
+/*2020-12-30 
+1.加减乘除的表示方法还是以为用正则，其实用不到,把四种运算符的情况放在if里，其他数字放在else里也没多少种情况
+2.另外没想到（a运算符b）怎么表示，其实具体到四种情况就可以表示清楚了啊
+3. 除法没有注意到人家要取整，就涉及到正负数怎么取整
+Division between two integers should truncate toward zero.整数除法只保留整数部分
+4. 直接从string里拿出来的数字要转成Int才能用，这是常识
+5.注意 减法和除法的时候 谁是被减，被除数
+*/
 
 var evalRPN = function(tokens) {
     var stk = new Array();
@@ -34,7 +41,6 @@ var evalRPN = function(tokens) {
             stk.push(parseInt(str));    //这里是关键**
         }
     }
-    console.log(stk);
     return stk[0];   //或者stk[stk.length - 1]都可以
 };
 

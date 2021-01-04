@@ -9,7 +9,7 @@ var containsDuplicate = function(nums) {
       ele.add(nums[i]);
     }
   }
-  return false;
+  return false;//都走完了上面的还没有返回true，那肯定是没有重复的了，不必再验证if (numSet.size == nums.length){return false;}
 }
 
 //下面这种方法是最容易想到的，没有什么方法，复杂度为O(n*2),数组一长就不行了。

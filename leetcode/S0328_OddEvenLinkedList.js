@@ -1,4 +1,4 @@
-//真的是要被这道题气死了，自己把自己绕晕了，链表的指向；什么叫新弄一个链表来做，什么叫原地改动，我之前一直是原地改动，乱七八糟
+//这个解法是新建链表来做，题目要求原地改动还没做出来那种解法； 但是也符合空间复杂度O（1），时间O（n)
 //2020-12-17 想到了新建两个链表，但是对于两个链表如何通过一个指针来写入，没太搞清楚
 var oddEvenList = function(head) {
   var oddHead = new ListNode(0);
@@ -20,7 +20,7 @@ var oddEvenList = function(head) {
       index++;
   }
   
-  evenNode.next = null;    //这个小地方要注意，第二次丢了,链表要有头有尾
+  evenNode.next = null;    //这个小地方要注意，第二次丢了,链表要有头有尾; **关键点，不然就会陷入circle
 
   oddNode.next = evenHead.next;
   

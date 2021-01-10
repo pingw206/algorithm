@@ -14,3 +14,25 @@ var removeElements = function(head, val) {
   }
   return headNode.next;
 };
+
+/*2021-1-10 想通else 里面写pointer = pointer.next; 绝对是本题最重要的点，意思就是重新开始while一次循环
+我这次提交依然没想到，导致虽然对了，但是很麻烦，要处理连续相同值出现的情况*/
+//不推荐这种解法
+var removeElements = function(head, val) {
+    var headNode = new ListNode(0);
+    headNode.next = head;
+    var pointer = headNode;
+    
+    while (pointer !== null && pointer.next !== null) {
+        if (pointer.next.val == val) {
+            var valNode = pointer.next;
+            while (valNode !== null && valNode.val == val) {
+                valNode = valNode.next;
+            }
+            pointer.next = valNode;
+        }
+        pointer = pointer.next;
+    }
+    
+    return headNode.next;
+};

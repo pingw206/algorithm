@@ -1,5 +1,4 @@
-/**没看懂，需要复习 栈的调用；以及写另外一个小函数；
- * 还得能读懂题目，题目给的array是从上到下，从左到右，一行行读的树上的数
+/** 2021-1-30 最开始第一个函数里面不需要判断root是否为空，注意返回arr
  * Definition for a binary tree node.
  * function TreeNode(val) {
  *     this.val = val;

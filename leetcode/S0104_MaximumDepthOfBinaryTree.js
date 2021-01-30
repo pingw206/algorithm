@@ -1,8 +1,4 @@
-function TreeNode(val) {
-  this.val = val;
-  this.left = this.right = null;
-}
-
+//2021-1-30 不需要再额外构建一个函数来递归；实在是没有想到，实质还是从头往下递归的思想，上面是左右两个深度再加一，这样的话最上面就是0
 var maxDepth = function(root) {
   if (root == null) {
       return 0;

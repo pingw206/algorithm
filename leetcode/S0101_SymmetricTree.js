@@ -1,4 +1,4 @@
-//难点在于想清楚第三层往下是什么样的规律 
+//2021-1-31 从root往下，是需要判断两个节点的，所以输入是两个，还需要再写个函数，这点没有想到。  
 var isSymmetric1 = function(root) {
     if (root == null) {
         return true;
@@ -17,5 +17,3 @@ var isTwoTreesSymmetric = function(root1, root2) {
         isTwoTreesSymmetric(root1.left, root2.right) &&
         isTwoTreesSymmetric(root1.right, root2.left); //这里不能写成if(...)return true; 因为会丢掉很多为false的情况
 }
-
-//做完100题，再想想这道题就会啦， 小心绕哦～

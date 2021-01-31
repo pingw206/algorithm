@@ -3,19 +3,19 @@
 // 这个题区别于之前的遍历题方法是有返回值，用来处理null的情况，试着用没有返回值的处理方式写一下？ （不管有没有返回值，都会跳出一层递归）
 var invertTree = function(root) {
     if (root == null) {
-        return null;  //不再是return空
+        return null;  //不再是return;
     }
     
-    // 1: resolve two sub question
+    // 1: resolve two sub question，保证子问题都已经是反转树
     invertTree(root.left);
     invertTree(root.right);
     
-    // 2: swap root.left and root.right---这里不是交换root.left.val
+    // 2: 然后再交换已经是反转树的子问题 swap root.left and root.right---这里不是交换root.left.val
     var temp = root.left;    
     root.left = root.right;
     root.right = temp;
 
-    return root;
+    return root;  //注意这里的返回值，其实是所有操作都完成后的最外层
 };
 
 //方法二：将root !== null 并且 没有左右子节点的时候看作最小子问题  （需要处理root == null 以及 root一边为null的情况）

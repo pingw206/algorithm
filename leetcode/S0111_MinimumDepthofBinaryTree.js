@@ -1,8 +1,8 @@
-
+//2021-2-13 关键是想到有几种情况，最后一种情况怎么写
 //这道题没有想明白定义的情况下去做，直接套用maxDepth()很容易出错，
 //深度：从root 到leaf node的距离；
 //leaf node: 没有children的node 
-//所以就要讨论： 最小子问题 root = null; 然后原问题和子问题存在三种情况： root也是leafNode；root只有一个child；root有两个child
+//要讨论： 最小子问题 root = null; 然后原问题和子问题存在三种情况： root也是leafNode；root只有一个child；root有两个child
 
 var minDepth = function(root) {
     if (root == null) {

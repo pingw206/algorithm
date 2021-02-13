@@ -3,14 +3,15 @@
 
 //2020-12-24 想到了第一递归平衡树，第二求高度，所以是两层递归，但没有写出来高度的函数，和最大深度是一样的，求树的深度是基本要求，还没有掌握
 //注意是调用isBalanced本身，不需要再写一个isTwoBalanced(root.left, root.right),读懂题目要求，左右两个树都要是平衡树，不是组合在一起
+
+//2021-2-13 本来开始又是完全没思路，拆解思路分析下去，只差判断里加isBalanced(root.left) && isBalanced(root.right)  这里没写
 var isBalanced = function(root) {
     if (root == null) {
         return true;
     }
     if (isBalanced(root.left) && isBalanced(root.right) && Math.abs(nodeHeight(root.left) - nodeHeight(root.right))<=1) {
         return true;
-    }
-    else {
+    } else {
         return false;
     }
 };
@@ -49,7 +50,7 @@ var height = function(root) {
     map1.set(root, maxHeight);
     return maxHeight;
 }
-//方法三：???
+//方法三：???有点难理解，先不理解了
 var isBalanced = function(root) {
     var result = true;
     height(root, result);

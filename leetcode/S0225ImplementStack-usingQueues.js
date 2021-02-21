@@ -1,7 +1,7 @@
 // 关键难点是想通了push的时候怎么做，后面就很简单了，切忌照搬232题
 //两种方法，用一个或者两个队列都可以实现
 
-/*方法一 用两个queue实现 */
+/*方法一 用两个queue实现stack */
 //用两个数组做成的队列，只能有队列的操作，也就是shift()从头上弹出,push()从尾巴加入
 /**
  * Initialize your data structure here.
@@ -45,7 +45,7 @@ MyStack.prototype.top = function() {
     while (this.queue1.length > 1) {
         this.queue2.push(this.queue1.shift());
     }
-    return this.queue1[0];
+    return this.queue1[0]; //取到top值后，不要像pop那样再把q2中的数放回q1，因为q1中还有数，再放回来顺序就不对了
 };
 
 /**
@@ -55,6 +55,8 @@ MyStack.prototype.top = function() {
 MyStack.prototype.empty = function() {
     return this.queue1.length == 0 && this.queue2.length == 0;
 };
+
+
 /**方法二 用一个Queue就可以实现
  * Initialize your data structure here.
  */

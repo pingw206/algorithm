@@ -1,6 +1,11 @@
-//用stack 实现queue
-/*本解法的关键是读懂题目，要用两个栈，第一个用来存push，第二个用来倒置成需要的队列-先进先出
-是在peek()中来倒置一下列表，因为peek()没有操作产生，然后pop调用peek实际上就是为了倒置一下，也可以写一个公共的倒置函数供peek,pop用
+//题意：用两个stack 实现queue
+/* 2021-2-21 用两个array来作为stack，没想到怎么使用只操作stack的操作，
+其实可以用：push入栈，pop出栈，拿到栈顶的数字array[array.length-1]*/
+/*本解法的关键是读懂题目，要用两个栈，第一个用来存push，第二个倒置后，用来pop， 这样就满足成需要的队列-先进先出
+因为队列是先进先出，所以push往stack1中push， pop或peek时从stack2中操作，stack2没数时，stack1往stack2中倾倒，
+只要stack2中还有数，就不需要从stack1中往里倾倒，为了保持队列的顺序
+从peek()中来倒置一下列表，因为peek()没有操作产生，然后pop调用peek实际上就是为了倒置一下，
+也可以写一个公共的倒置函数供peek,pop用
 stack1  stack2
  3         1
  2         2 
@@ -28,7 +33,7 @@ MyQueue.prototype.push = function(x) {
  * @return {number}
  */
 MyQueue.prototype.pop = function() {
-    if (this.empty()) { 
+    if (this.empty()) {  //注意empty()有括号
         return;
     }//本题设定没有异常情况，可以不写此句话 
     var popVal = this.peek();  /*!!!这句话非常关键！！！调用peek()方法生成stack2 */

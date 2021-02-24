@@ -31,5 +31,5 @@ var nthUglyNumber = function(n) {
       if (curMin == dpTable[indexOf5]*5) { indexOf5++; }
       dpTable[i] = curMin;
   }
-  return dpTable[dpTable.length-1];
+  return dpTable[dpTable.length-1]; // dpTable[n-1]
 };

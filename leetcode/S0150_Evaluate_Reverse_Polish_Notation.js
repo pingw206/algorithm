@@ -27,7 +27,7 @@ var evalRPN = function(tokens) {
             if (str=='*') {
                 result = num1 * num2;
             }
-            if (str == '/') {
+            if (str == '/') {  //我这里result = parseInt(num2/num1) 也可以，就不用分情况讨论了;
                 var temp = num2/num1;  //if num1 === 0 , throw exception 
                 if (temp >= 0) {    //不写等号的话，要在前面定义的时候var result = 0；
                     result = Math.floor(temp);   //这两条写成三元判断更简单一些
@@ -38,7 +38,7 @@ var evalRPN = function(tokens) {
             }
             stk.push(result);
         } else {
-            stk.push(parseInt(str));    //这里是关键**
+            stk.push(parseInt(str));    //这里是关键**，这里写一句，不用每次计算完再转换
         }
     }
     return stk[0];   //或者stk[stk.length - 1]都可以

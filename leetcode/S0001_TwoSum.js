@@ -1,5 +1,4 @@
-//用Map()来做；
-//2021-01-04 设谁为Key比较关键
+//2021-3-7创建Map()来做；因为要用到has(key)方法判断是否存在这个value，key判断为target-value，则设nums[i]为Key
 var twoSum = function(nums, target) {
   let a = new Map();
   for (var i = 0; i < nums.length; i++) {

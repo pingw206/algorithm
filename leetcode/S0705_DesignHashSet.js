@@ -2,7 +2,7 @@
  * Initialize your data structure here.
  */
 //2020-1-7 时间和空间的衡量，规划出来20000个位置，让map平均分配在这个上面，再超出的就用链表来存。
-//如果空间位置少，那么链表就会长，时间就多来。
+//如果空间位置少，那么链表就会长，时间就变多。
 var MyHashSet = function() {
   this.arr = [];
   this.arr.length = 20000;
@@ -29,7 +29,7 @@ MyHashSet.prototype.add = function(key) {
   if (list == null) {
       this.arr[index] = new listNode(key);
   } else {
-      var node = new listNode(key);
+      var node = new listNode(key); //前插法
       node.next = list;
       this.arr[index] = node;
   }
@@ -65,7 +65,7 @@ MyHashSet.prototype.remove = function(key) {
 MyHashSet.prototype.contains = function(key) {
   let index = key % 20000;
   let list = this.arr[index];
-  while (list != null) {
+  while (list != null) {    //先要把不是null放在前面
       if (list.val == key) {
           return true;
       } else {

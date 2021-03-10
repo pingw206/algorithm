@@ -24,7 +24,7 @@ var findPath = function(root, path,target) {
   if (target.val == root.val) {
       return true;
   }
-  if (findPath(root.left, path,target) || findPath(root.right, path, target) ) {
+  if (findPath(root.left, path,target) || findPath(root.right, path, target) ) { //需要返回值true/false 是给这里用的
       return true;
   }
   path.pop();

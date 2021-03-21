@@ -1,6 +1,6 @@
 /**init 2021-1-13 双头队列，传统队列是从rear push，从head pop；这种双头队列是两边都可以push，pop；（栈是从一头push和pop）
  * 本题思想同621题是一样的，还是用开区间的思想
- * 没太理解
+ * 2021-3-21 做会了621，这题就会了；注意的是减1的时候注意再加个length，不然可能就是负数了
  */
 /**
  * Initialize your data structure here. Set the size of the deque to be k.

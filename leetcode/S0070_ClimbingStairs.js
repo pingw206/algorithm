@@ -1,5 +1,6 @@
 /*2020-12-28 错误超时的方法：
 return climbStair(n-1) + climbStair(n-2) ,导致循环调用，栈溢出
+2021-3-23 题目中说了n>=1,所以其实也没必要把给arr中第一个数赋值0
 */
 //方法一
 function climbStair2(n) {

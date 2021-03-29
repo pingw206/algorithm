@@ -1,6 +1,8 @@
-/** init 2021-2-2 看了半天人家的答案才看懂，让我想到设置这些条件已经很难了，再实现就更难了。。。*/
-
-
+/** init 2021-2-2 /3-29/    */
+/*  字母对应的编码是从1-26，所以要引入一个判断是否是有效编码的函数，一位数的时候不能是0，两位数的时候要转成十进制再判断 10<=x<=26
+还是很典型的DP题  递推公式为：F(n) = {F(n-1) if s[n] is valid} + {F(n-2) if s[n-1:n] is valid}；
+*/
+ 
 /**
  * @param {string} s
  * @return {number}
@@ -26,7 +28,7 @@ var numDecodings = function(s) {
 */
 var isValidEncoding = function(encoding) {
   if (encoding.length == 1) {
-      return encoding != "0";
+      return encoding != "0";  //这里是字符串
   } else if (encoding.length == 2) {
       var num = parseInt(encoding, 10);
       return (num >= 10 && num <= 26);

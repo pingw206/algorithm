@@ -1,6 +1,7 @@
-/*2021-2-18 三角形这个最后有多个出口，跟之前的正方形不同，那种只有一个出口在右下角。所以方法也不太相同。不能再用之前的方法。
-需要把最后一行的每个出口都计算一下，然后取和的最小值。不能直接取最后一行的最小的数字往上推，因为不是看每一行的数字是否最小，
-而是看每种路径的和最小。这是我的错误解法忽略的地方*/
+/*2021-2-18 | 4-1  */
+/** 三角形这个最后有多个出口，跟之前的正方形不同，那种只有一个出口在右下角。所以方法也不太相同。不能再用之前的方法。
+需要把最后一行的每个出口都计算一下，然后取和的最小值。不能直接取最后一行的最小的数字往上推，因为不是看每一行的数字是否最小，而是看每种路径的和最小。这是我的错误解法忽略的地方*/
+
 /**方法一 先实现一下 space complexity: O(n*n) 的方法，dpTable算成一个矩阵，好理解一点 */
 var minimumTotal = function(triangle) {
   // initialize the DP table
@@ -25,9 +26,10 @@ var minimumTotal = function(triangle) {
       }
   }
   
-  return Math.min.apply(null, dpTable[dpTable.length-1]);//求数组中最小的数的方法
+  return Math.min.apply(null, dpTable[dpTable.length-1]);//求数组中最小的数的方法 
+  // dpTable =  [ [ 2 ], [ 5, 6 ], [ 11, 10, 13 ], [ 15, 11, 18, 16 ] ] 返回11
 };
-/**方法二 不用保存成矩阵，因为每次算完只保存最后一轮的结果就行，所以用矩阵
+/**方法二 不用保存成矩阵，因为每次算完只保存最后一轮的结果就行，所以用数组，空间复杂度O（n）
  *  using tempDpTable to swap dpTable，每一轮算完再变tempTable*/
 var minimumTotal = function(triangle) {
   // initialize the DP table

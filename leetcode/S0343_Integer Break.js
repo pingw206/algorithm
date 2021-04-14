@@ -7,7 +7,7 @@ f(n)=max {i*(n-i), i*f(n-i)}，其中i∈{1, ..., n-2}，i*(n-i)是把n拆成两
 var integerBreak = function(n) {
   var dpTable = new Array(n+1);
   dpTable[0] = 0;
-  dpTable[1] = 1;
+  dpTable[1] = 1; //1有1种，不是0
   for (var i = 2; i <= n; i++) {
       var curMax = 1; // defaule: 1*1*1*...*1=1
       for (var j = 1; j < i; j++) {

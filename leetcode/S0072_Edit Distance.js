@@ -1,4 +1,4 @@
-/** 2021-2-28
+/** 2021-2-28 | 4-20
  * 其实还是LCS类
  * (  四个角分别是   A  |  Aa
                 f1 B  |  B  f2
@@ -30,7 +30,7 @@ var minDistance = function(word1, word2) {
           if (word1[i-1] == word2[j-1]) {
               dpTable[i][j] = dpTable[i-1][j-1];
           } else {
-              dpTable[i][j] = Math.min(dpTable[i-1][j-1], dpTable[i-1][j], dpTable[i][j-1]) + 1;
+              dpTable[i][j] = Math.min(dpTable[i-1][j-1], dpTable[i-1][j], dpTable[i][j-1]) + 1; //关键点
           }
       }
   }

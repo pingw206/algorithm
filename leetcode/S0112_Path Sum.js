@@ -1,4 +1,6 @@
-/** 2021-3-3 依旧是典型的DFS，学会简洁一些。同129题
+/** 2021-3-3 ｜ 4-26
+ * 依旧是典型的DFS，学会简洁一些。同129题
+ * 不同的处理方法还是做出来
  * 
  */
  //方法一，推荐简洁方法
@@ -13,11 +15,11 @@ var hasPath = function(root, targetSum, sum) {
   sum += root.val;
   if (root.left == null && root.right == null) {
       if (sum == targetSum) {
-          return true;  //这种情况下这条路才是true
+          return true;  //唯一让这条路线是true的情况
       }
   }
   
-  if (hasPath(root.left, targetSum, sum)) {  //难点在这，即要走这步，又要用来判断， 一条路是true的时候才能返回true，false不做处理
+  if (hasPath(root.left, targetSum, sum)) {  //难点在这，即要走这步，又要用来判断， 一条路是true的时候才能返回true，false不做处理； 只要有一条路能match到targetSum就能返回了
       return true;
   }
   if (hasPath(root.right, targetSum, sum)) {

@@ -1,4 +1,5 @@
-/** 2021-3-10 这题区别于236的地方是，这里的x，y是value不是节点，所以比较和push的时候要注意
+/** 2021-3-10 ｜ 5-15
+ * 这题区别于236的地方是，这里的x，y是value不是节点，所以比较root.val == target，pathX[pathX.length - 2] 和push的时候要注意
  * 我的思路是对的：要满足 两个路径长度（深度）相等，且倒数第二个节点不同
  */
 
@@ -7,7 +8,7 @@ var isCousins = function(root, x, y) {
   var pathY = [];
   findPath(root, pathX, x);
   findPath(root, pathY, y);
-  // x and y are diffrent, hence the pathX and pathY must be great than 1
+  // x and y are diffrent, hence the pathX and pathY must be great than 1，所以就不用判断length>2了
   return pathX.length == pathY.length && pathX[pathX.length - 2] != pathY[pathY.length - 2];
 };
 
@@ -16,7 +17,7 @@ var findPath = function(root, path, target) {
       return;
   }
   path.push(root.val);
-  if (root.val == target) {
+  if (root.val == target) {  
       return true;
   }
   if (findPath(root.left, path, target) || findPath(root.right, path, target)) {

@@ -1,4 +1,5 @@
-/** 2021-3-11  之前的题是一棵树找路径，现在是多棵树
+/** 2021-3-11 ｜5-16
+ *  之前的题是一棵树找路径，现在是多棵树.有点绕，但是搞清楚了并不难
  * ① DFS：把n个for循用递归实现；② BFS：两个vector互相交换；
  * 
  */
@@ -14,8 +15,8 @@ var genComb = function(index, digits, path, result, digitCharMap) {  //index=0�
   if (index >= digits.length) {  //保证index < "23".length, 也就是说digits是几个数字，那么组合中单词的长度就是几个字母;跳出栈调用的语句
       return;
   }
-  var curCharSet = digitCharMap[digits[index]];  //“abc”，在这一步换树
-  for (var i = 0; i < curCharSet.length; i++) {   
+  var curCharSet = digitCharMap[digits[index]];  //“abc” / “def” 
+  for (var i = 0; i < curCharSet.length; i++) {   //循环次数--遍历完“abc”
       path.push(curCharSet[i]); //path = [a]
       if (index == digits.length-1) {  //走到路尽头的标志（叶子节点）
           result.push(path.map((x)=>x).join(""));

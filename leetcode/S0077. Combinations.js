@@ -11,13 +11,13 @@
   var nums = new Array(n).fill(0);
   nums.forEach(function(num, index) {
       nums[index] = index+1;
-  });   //把1～n写进数组里，方便操作[1,2,3,4]
+  });   //把1～n写进数组里，方便操作nums=[1,2,3,4]
   var paths = [];
   var path = [];
   dfs(0, nums, k, paths, path);
   return paths;
 };
-var dfs = function(start, nums, k, paths, path) {
+var dfs = function(start, nums, k, paths, path) {  //从start到n的数字；k通过倒数限定多少个数字的组合
   if (k == 0) { //没有数字了
       return;   
   }
@@ -26,8 +26,8 @@ var dfs = function(start, nums, k, paths, path) {
       if (k - 1 == 0) { // or path.length == k
           paths.push(path.map((x)=>x));
       }
-      dfs(i+1, nums, k-1, paths, path); //用完一个数，k-1
-      path.pop();
+      dfs(i+1, nums, k-1, paths, path); //path push完一个数，k-1
+      path.pop();//上面的dfs k==0返回后, 就删掉一个数，删完也是返回
   }
 }
  //方法二 广度范围不太好理解 

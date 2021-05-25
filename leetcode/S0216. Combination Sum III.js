@@ -1,4 +1,5 @@
-//2021-3-15 之前题的组合应用
+//2021-3-15 ｜ 5-25 
+//之前题的组合应用，第二次还是想到的是我的方法，不过一些if判断条件没写对
 
 //方法一 磊简单一些写法
 var combinationSum3 = function(k, n) {
@@ -32,7 +33,7 @@ var combinationSum3 = function(k, n) {
 };
 
 var genComb = function(list, start, path, result, k, n) {
-  if (k==0) {  //层数用完
+  if (k==0) {  //层数用完时跳出栈，这里不再看n (略有疑问)
       return;
   }
   for (var i = start; i<=list.length -k; i++) {

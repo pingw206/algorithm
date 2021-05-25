@@ -1,4 +1,8 @@
-
+/** 2021-3-15 | 5-25 
+ * 这题的关键点就是结果不能重复，比如不能是[[1,2,5],[1,7],[1,6,1],[2,6],[2,1,5],[7,1]]， 所以不能用常规方法，
+ * 得先排个序
+ * 
+ */
 var combinationSum2 = function(candidates, target) {
   candidates.sort(function(a, b) {
       return a-b;  //排序
@@ -10,7 +14,7 @@ var combinationSum2 = function(candidates, target) {
 };
 var genComb = function(candidates, start, path, result, target) {
   if (start > candidates.length || candidates[start] > target) {
-      return;  //跳出栈的条件：遍历完数组 或者 数字比target大
+      return;  //跳出栈的条件：遍历完数组 或者 数字比target大 ; 或者target减完了  if (target<=0){return}
   }
   for (var i = start; i < candidates.length; i++) {
       if (i > start && candidates[i] == candidates[i-1]) {
@@ -24,5 +28,3 @@ var genComb = function(candidates, start, path, result, target) {
       path.pop();
   }
 }
-
-combinationSum2([2,5,2,1,2],5);

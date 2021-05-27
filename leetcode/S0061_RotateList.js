@@ -1,9 +1,9 @@
-//第二种解法，一次性搬过来，不要用最开始那种一次次搬的写法，太麻烦。虽然这个也挺麻烦的，但是就是这样写哦
-//认真+恒心，都是自己写出来哒，虽然写完都麻烦的怀疑自己
+//第二种解法，一次性搬过来，不要用最开始那种一次次搬的写法，太麻烦。虽然这个也挺麻烦的
 //2020-12-14 倒数第二步 tail1.next要放对位置，不能过早的置为null，会影响别人，尤其是这种引用
 //2021-1-10 又丢了k==0 的讨论
+//2021-5-26 不需要创建头节点; 没有明确指代tail1,tail2,head2,导致绕的不对
 var rotateRight = function(head, k) {
-    if (head == null) {
+    if (head == null) {  //别忘
         return head;
     }
     
@@ -14,7 +14,7 @@ var rotateRight = function(head, k) {
         linkLength++;
     }
     k = k % linkLength;
-    if (k === 0) {
+    if (k === 0) {    //别忘
         return head;
     }
     
@@ -26,7 +26,7 @@ var rotateRight = function(head, k) {
     }
     var tail1 = pointer;
     var head2 = pointer.next;
-    while (pointer.next !== null) {
+    while (pointer.next !== null) {  //关键是这里，这里不要走head2
         pointer = pointer.next;
     }
     var tail2 = pointer;

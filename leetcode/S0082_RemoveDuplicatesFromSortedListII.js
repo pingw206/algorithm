@@ -2,7 +2,7 @@
 /*2020-12-17 涉及到的节点比较复杂而已，逻辑并不复杂：我也想到了需要考虑三个或者更多节点，
 没想到可以抽象成：一个指针节点，一个开始一个终止节点来确定重复的节点*/
 /* 2021-1-10 还是困在了想跟203题一样的做法，往后考虑pointer.next.next节点，并不能做出来；还是这种设开始终止的办法好 */
-
+//2021-5-27 我想到了记录下来第一个节点的值，然后后面的跟他比较，消消乐，一直到不相等了再往后挪，但是实现不了，太麻烦；还是解法这种思路清晰，其实大差不差
 var deleteDuplicates = function(head) {
     var newNode = new ListNode(0);   //即使开头是0也不冲突
     newNode.next = head;
@@ -16,9 +16,8 @@ var deleteDuplicates = function(head) {
         if (startNode == endNode) {  //是否是同一个节点,注意这里是节点相同，不仅仅是val相同，也就是只有一个数，endNode没有变
             cursorNode = startNode;
         } else {
-            cursorNode.next = endNode.next;
+            cursorNode.next = endNode.next;  // ??? 为什么不是cursorNode = endNode.next
         }
     }       
     return newNode.next;
 };
-

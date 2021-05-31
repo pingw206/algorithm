@@ -33,7 +33,7 @@ var isPalindrome = function(s) {
       return true;
   }
   var left = 0, right = s.length-1;
-  while (left < s.length-1) {
+  while (left < right) {
       if (s[left] != s[right]) {
           return false;
       }

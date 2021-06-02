@@ -1,9 +1,8 @@
-//2021-2-13 关键是想到有几种情况，最后一种情况怎么写
-//这道题没有想明白定义的情况下去做，直接套用maxDepth()很容易出错，
-//深度：从root 到leaf node的距离；
-//leaf node: 没有children的node 
-//要讨论： 最小子问题 root = null; 然后原问题和子问题存在三种情况： root也是leafNode；root只有一个child；root有两个child
-
+//2021-2-13|6-2 
+/* 和104题求最大深度的区别在于，有的节点只有一个分支的时候，深度不是没有分支的那边的min 0, 而是有分支的那边的深度
+因为最大深度的时候不涉及到这个问题，无脑求max就行，现在无脑求min会有一边的0需要排除掉
+要讨论： 最小子问题 root = null; 然后原问题和子问题存在三种情况： root也是leafNode；root只有一个child；root有两个child
+*/
 var minDepth = function(root) {
     if (root == null) {
         return 0;

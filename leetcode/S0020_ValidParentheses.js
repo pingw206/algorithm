@@ -1,5 +1,6 @@
-//2021-2-14 想到了怎么用栈，没想到用map的判断是否存在
-//优化写法， 首先判断条件可以优化到两条，然后是把符号都先存到map里面，再使用；
+//2021-2-14 | 6-2
+//用栈来存入，用map的判断是否存在
+
 /*Map知识点:Map 与数组的关系
 let kvArray = [["key1", "value1"], ["key2", "value2"]];
 let myMap = new Map(kvArray);// Map构造函数可以将一个二维键值对数组转换成一个Map对象
@@ -32,46 +33,18 @@ var isValid = function(s) {
         return false;
     }
 };
-//我最开始的写法，遍历一遍所有的符号（其实S本身就是字符串，可以定位到第几个字符的，不用split)
+//2.简化方法，我后来发现也不用上面判断过程中要分左右，get方法没有的话会返回undefined，也就是false，不能pop
+//需要push的情况（遇到左半边，或者右半边不是正好和栈的最后一个匹配
 var isValid = function(s) {
-    var sList = s.split("");
-    var newStack = new Array();
-    for (var i = 0; i < sList.length; i++) {
-        if (sList[i] == '{' || sList[i] == '[' || sList[i] == '(') {
-            newStack.push(sList[i]);
-        } else if (sList[i] == "}") {
-            if (newStack.length == 0) {
-                return false;
-            }
-            if (newStack[newStack.length - 1] == "{") {
-                newStack.pop();
-            } else {
-                return false;
-            }
-        } else if (sList[i] == ")") {
-            if (newStack.length == 0) {
-                return false;
-            }
-            if (newStack[newStack.length - 1] == "(") {
-                newStack.pop();
-            } else {
-                return false;
-            }
-        } else if (sList[i] == "]") {
-            if (newStack.length == 0) {
-                return false;
-            }
-            if (newStack[newStack.length - 1] == "[") {
-                newStack.pop();
-            } else {
-                return false;
-            }
+    var res = [];
+    var kvArray = [[")","("],["]","["],["}","{"]];
+    var kvMap = new Map(kvArray);
+    for (var i=0;i<s.length;i++) {
+        if (res.length > 0 && kvMap.get(s[i]) == res[res.length-1]) {
+            res.pop();
+        }else {
+            res.push(s[i]);
         }
     }
-
-    if (newStack.length == 0) {
-        return true;
-    }
-    return false;
+    return (res.length == 0);
 };
-

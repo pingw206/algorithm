@@ -1,4 +1,7 @@
-// 关键难点是想通了push的时候怎么做，后面就很简单了，切忌照搬232题
+//2021-2-21 | 6-3 
+/*关键点： 两个queue实现栈，只能操作到q1中只剩一个数来作为栈顶；
+在pop完栈顶后，还要把q2中的数倒腾回q1; top获取栈顶后，不能再倒腾回来，可以继续push进q1
+*/
 //两种方法，用一个或者两个队列都可以实现
 
 /*方法一 用两个queue实现stack */
@@ -6,7 +9,7 @@
 /**
  * Initialize your data structure here.
  */
-var MyStack = function() {
+ var MyStack = function() {
     this.queue1 = [];
     this.queue2 = [];
 };

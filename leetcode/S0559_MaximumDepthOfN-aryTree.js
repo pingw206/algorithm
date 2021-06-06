@@ -1,7 +1,6 @@
 
-//2021-1-30 subDepth, curDepth 有点弄晕了
-//2020-12-22 依然卡在了求最大值，思考了下，没有做下去；我也想到了要么迭代，要么依次比较
-//subDepth 定义在了外层，所以它的值是随着里层变化一直变化的；这点是关键
+//2020-12-22| 2021-1-30 | 6-2
+// subDepth的最开始定义直接取0，不要取maxDepth(root.children[0]), 超时报错。总会变大的。
 //方法一 DFS
 var maxDepth = function(root) {
   if (root == null) {

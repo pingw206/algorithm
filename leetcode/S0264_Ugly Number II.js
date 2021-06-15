@@ -1,4 +1,4 @@
-/** 2021-2-24 ｜ 2021-4-8
+/** 2021-2-24 ｜ 2021-4-8 ｜ 6-15
 * 关键是想到从2，3，5的倍数中依次挑选最小的数，如何标记用过的数，然后继续乘---注意这里不是说2，3，5的任意倍数，要乘前面的丑数
 ugly number 是只由2，3，5 的乘积组成的数 1,2,3,4,5,6,8,9,10,12...
 *解法思路：f(n)=min{f(i)*2,f(j)*3,f(k)*5},f(n)一定是前面某数*2或某某数*3或某某某数*5.
@@ -28,10 +28,11 @@ var nthUglyNumber = function(n) {
   var indexOf2 = 0, indexOf3 = 0, indexOf5 = 0; // i, j, k
   for (var i = 1; i < n; i++) {
       var curMin = Math.min(dpTable[indexOf2]*2, dpTable[indexOf3]*3, dpTable[indexOf5]*5);
+			dpTable[i] = curMin;
+
       if (curMin == dpTable[indexOf2]*2) { indexOf2++; }
       if (curMin == dpTable[indexOf3]*3) { indexOf3++; }
       if (curMin == dpTable[indexOf5]*5) { indexOf5++; }
-      dpTable[i] = curMin;
   }
   return dpTable[dpTable.length-1]; // dpTable[n-1]
 };

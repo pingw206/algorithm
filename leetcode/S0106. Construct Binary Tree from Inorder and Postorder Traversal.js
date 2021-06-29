@@ -2,12 +2,12 @@
  * 
  */
 
-var buildTree = function(inorder, postorder) {
+ var buildTree = function(inorder, postorder) {
   return buildTreeHelper(inorder,0,inorder.length,postorder,0,postorder.length);
 };
 var buildTreeHelper = function(inorder,inStart,inEnd,postorder,postStart,postEnd) {
   if (inStart >= inEnd) {
-      return null;
+      return null;  //这里是null而不是空 
   }
   var root = new TreeNode(postorder[postEnd-1]);  //postEnd,不能写postorder.length-1
   var rootIndex = inStart;

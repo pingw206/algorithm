@@ -3,7 +3,7 @@
  * 我的思路是对的：要满足 两个路径长度（深度）相等，且倒数第二个节点不同
  */
 
-var isCousins = function(root, x, y) {
+ var isCousins = function(root, x, y) {
   var pathX = [];
   var pathY = [];
   findPath(root, pathX, x);
@@ -14,7 +14,7 @@ var isCousins = function(root, x, y) {
 
 var findPath = function(root, path, target) {
   if (root == null) {
-      return;
+      return false;
   }
   path.push(root.val);
   if (root.val == target) {  

@@ -28,7 +28,7 @@ var detectCycle = function(head) {
   
   var p1 = head;
   while (true) {
-      if (p1 == slower) {
+      if (p1 == slower) {       //要先判断，再往后挪，不然[1,2]在1入口，这种会错往后多1
           return p1;
       }
       p1 = p1.next;

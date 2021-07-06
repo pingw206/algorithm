@@ -33,7 +33,7 @@ var combinationSum3 = function(k, n) {
 };
 
 var genComb = function(list, start, path, result, k, n) {
-  if (k==0) {  //层数用完时跳出栈，这里不再看n (略有疑问)
+  if (k==0 || n==0) {  //跳出栈
       return;
   }
   for (var i = start; i<=list.length -k; i++) {

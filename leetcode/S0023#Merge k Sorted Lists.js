@@ -64,4 +64,4 @@ var mergeKLists = function(lists) {
   }
   return lists[0];
 };
-var mergeTwoLinkedList = function(head1, head2) {//同上solution1}
+var mergeTwoLinkedList = function(head1, head2) {}//同上solution1

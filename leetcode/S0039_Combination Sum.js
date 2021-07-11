@@ -27,3 +27,26 @@
         path.pop();
     }
   }
+  // 方法二
+  // date: 2021.7.11
+  
+  var combinationSum = function(candidates, target) {
+      var paths = [];
+      var path = [];
+      dfs(candidates, 0, target, path, paths);
+      return paths;
+  };
+  
+  var dfs = function(candidates, start, target, path, paths) {
+      if (target < 0) {
+          return;
+      }
+      if (target == 0) {
+          paths.push(path.map((x)=>x));
+      }
+      for (var i = start; i < candidates.length; i++) {
+          path.push(candidates[i]);
+          dfs(candidates, i, target-candidates[i], path, paths);
+          path.pop();
+      }
+  }

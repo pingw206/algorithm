@@ -31,3 +31,28 @@
         path.pop();//上面的dfs k==0返回后, 就删掉一个数，删完也是返回
     }
   }
+  
+  //方法二 最新的改进方法
+  // date: 2021.7.11
+  
+  var combine = function(n, k) {
+      var nums = new Array(n).fill(0);
+      nums.forEach(function(num, index) {
+          nums[index] = index+1;
+      });
+      var paths = [];
+      var path = [];
+      dfs(nums, 0, k, path, paths);
+      return paths;
+  };
+  var dfs = function(nums, start, left, path, paths) {
+      if (left == 0) {
+          paths.push(path.map((x)=>x));
+          return;
+      }
+      for (var i = start; i <= nums.length-left; i++) {
+          path.push(nums[i]);
+          dfs(nums, i+1, left-1, path, paths);
+          path.pop();
+      }
+  }
